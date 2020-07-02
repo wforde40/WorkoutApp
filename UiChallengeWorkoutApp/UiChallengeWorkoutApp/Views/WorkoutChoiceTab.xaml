@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Name="x_this"
+             x:Class="UiChallengeWorkoutApp.Views.WorkoutChoiceTab">
+    <ContentView.Content>
+
+        <yummy:PancakeView  
+            x:Name="Pancake"
+            CornerRadius="50" 
+            HeightRequest="50"
+            BackgroundColor="#DBCFF9">
+
+            <Label 
+                x:Name="TitleLabel"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                TextColor="#641FFE"
+                FontSize="Small"
+                FontAttributes="Bold" />
+
+            <yummy:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1">
+                </TapGestureRecognizer>
+            </yummy:PancakeView.GestureRecognizers>
+            
+            
+        </yummy:PancakeView>
+
+    </ContentView.Content>
+</ContentView>

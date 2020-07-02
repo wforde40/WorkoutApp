@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="x_this"
+             x:Class="UiChallengeWorkoutApp.Views.WorkoutDay">
+  <ContentView.Content>
+      <StackLayout>
+            <Label 
+                x:Name="DayLabel"
+                Text="{Binding Day, Source={Reference x_this}}"
+                TextColor="White"
+                HorizontalOptions="Center"/>
+
+            <skia:SKCanvasView  
+              x:Name="DoneCircle"
+              HeightRequest="50"
+              WidthRequest="50"  
+              PaintSurface="CanvasView_PaintSurface">
+
+            </skia:SKCanvasView>
+              
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

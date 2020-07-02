@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local="clr-namespace:UiChallengeWorkoutApp.Views"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="UiChallengeWorkoutApp.Views.WorkoutPage"
+             x:Name="x_this"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*"  />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+
+            <!--Background Gradient-->
+            <local:GradiantView
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Grid.Row="0"
+               Grid.RowSpan="3">
+            </local:GradiantView>
+            
+            <StackLayout 
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Grid.Row="0"
+                Orientation="Horizontal"
+                HorizontalOptions="Fill"
+                VerticalOptions="FillAndExpand"
+                Padding="30, 10">
+
+
+                <ImageButton Source="BackArrow.png" 
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="StartAndExpand"
+                             Clicked="ImageButton_Clicked">
+                </ImageButton>
+
+                
+                <ImageButton Source="SettingsWhite.png" 
+                             Scale=".75"  
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="EndAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                </ImageButton>
+
+            </StackLayout>
+
+            <Label 
+                Grid.Column="0"
+                Grid.Row="1"
+                FontSize="50"
+                TextColor="White"
+                FontAttributes="Bold"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Padding="20,0,0,0">
+                Today's Workout 
+            </Label>
+
+            <Image  
+                Grid.Column="1" 
+                Grid.Row="1"
+                Source="{Binding Icon}"
+                VerticalOptions="Center"
+                Margin="0,0,0,40">
+            </Image>
+
+            <local:WorkoutWeekChecklist
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="2"
+                    VerticalOptions="Start"
+                    Margin="0,-40,0,0"
+                    Completed="{Binding CompletedWorkouts}">
+            </local:WorkoutWeekChecklist>
+
+            <yummy:PancakeView
+                 Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    HasShadow="true"
+                    CornerRadius="5"
+                    Margin="30, -130, 30, 0"
+                    VerticalOptions="Start">
+
+                <ScrollView
+                    VerticalOptions="Center">
+                    <local:ExerciseList
+                        Exercises="{Binding Exercises}"
+                        CompletedCommand ="{Binding CompleteWorkoutCommand}">
+                    </local:ExerciseList>
+                </ScrollView>
+
+
+            </yummy:PancakeView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

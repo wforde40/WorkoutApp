@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:UiChallengeWorkoutApp.Views"
+             mc:Ignorable="d"
+             x:Name="x_this"
+             x:Class="UiChallengeWorkoutApp.Views.ExerciseListItem">
+    <ContentView.Content>
+        <!--Padding="0, 15"-->
+        <Grid
+            HeightRequest="100"
+            
+            HorizontalOptions="FillAndExpand"
+            ColumnSpacing="0"
+            BackgroundColor="White"
+            Padding="0"
+            Margin="0"
+            >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*">
+                </ColumnDefinition>
+                <ColumnDefinition Width="*">
+                </ColumnDefinition>
+                <ColumnDefinition Width="*">
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+           
+            <!--Index-->
+            <Label 
+                x:Name="IndexLabel"
+                Grid.Column="0"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand"
+                Margin="10, 0"
+                Text="{Binding Index}"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                TextColor="#D4D7DC"/>
+
+            <!--Exercise Info-->
+            <StackLayout
+                Grid.Column="1"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand"
+                IsVisible="{Binding IsNotRest}"
+                
+                Spacing="0">
+                <Label
+                    Text="{Binding Name}"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    TextColor="#5E15FF"/>
+                <Label 
+                     x:Name="RepititionLabel"
+                     Text="{Binding Repititions}"
+                     FontSize="Medium"
+                     TextColor="#9A9BA4"/>
+            </StackLayout>
+
+            <Label 
+                Grid.Column="1"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand"
+                Text="REST"
+                IsVisible="{Binding IsRest}"
+                FontSize="Large"
+                FontAttributes="Bold"
+                TextColor="Black"
+                />
+
+            <!--CompletedCheck-->
+            <local:CheckCircle 
+                Grid.Column="2"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="EndAndExpand"
+                Margin="0,0,10,0"
+                IsVisible="{Binding IsNotRest}"
+                Completed="{Binding Completed, Mode=TwoWay}"
+                CompletedCommand="{Binding Checked, Source={Reference x_this}}"/>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

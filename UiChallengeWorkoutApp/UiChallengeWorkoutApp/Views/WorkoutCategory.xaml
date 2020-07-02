@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:local="clr-namespace:UiChallengeWorkoutApp.Views"
+             mc:Ignorable="d"
+             x:Class="UiChallengeWorkoutApp.Views.WorkoutCategory">
+  <ContentView.Content>
+
+        <yummy:PancakeView 
+                        Padding="10"
+                        BackgroundColor="#FBFBFF" 
+                        HeightRequest="175"
+                        WidthRequest="50" 
+                        CornerRadius="5">
+            
+            <local:WorkoutItem 
+  
+                            ImgSource="{Binding ImageSource}"
+                            Text="{Binding Text}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+
+            <yummy:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </yummy:PancakeView.GestureRecognizers>
+
+        </yummy:PancakeView>
+
+
+    </ContentView.Content>
+</ContentView>

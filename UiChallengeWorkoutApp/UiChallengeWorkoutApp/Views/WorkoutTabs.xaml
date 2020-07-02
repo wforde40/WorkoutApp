@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:UiChallengeWorkoutApp.ViewModels"
+             xmlns:local="clr-namespace:UiChallengeWorkoutApp.Views"
+             mc:Ignorable="d"
+             x:Name="x_this"
+             x:Class="UiChallengeWorkoutApp.Views.WorkoutTabs">
+  <ContentView.Content>
+
+        <CollectionView 
+                 x:Name="Tabs"
+                 ItemsSource="{Binding Items, Source={Reference x_this}}"
+                 Margin="10, 5"
+                 HeightRequest="35"
+                 HorizontalOptions="CenterAndExpand">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout
+                    Orientation="Horizontal"
+                    ItemSpacing="10">
+                    
+                </LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+            
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+        
+                    <local:WorkoutChoiceTab 
+                                Text="{Binding Text}"
+                                Selected="{Binding Selected}"
+                                Margin="5">
+                    </local:WorkoutChoiceTab>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+
+        </CollectionView>
+
+
+    </ContentView.Content>
+</ContentView>

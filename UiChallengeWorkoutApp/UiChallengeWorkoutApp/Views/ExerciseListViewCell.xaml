@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:UiChallengeWorkoutApp.Views"
+             mc:Ignorable="d"
+             x:Class="UiChallengeWorkoutApp.Views.ExerciseListViewCell">
+  <ViewCell.View>
+        <StackLayout 
+            Orientation="Horizontal"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Spacing="40"
+            Padding="20"
+            >
+
+            <!--Index-->
+            <Label 
+                x:Name="IndexLabel"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Start"
+                Text="{Binding Index}"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                TextColor="#D4D7DC"/>
+
+            <!--Exercise Info-->
+            <StackLayout
+                Orientation="Vertical"
+                VerticalOptions="Center">
+                <Label
+                    x:Name="ExerciseNameLabel"
+                    VerticalOptions="Center"
+                    Text="{Binding Name}"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    TextColor="#5E15FF"/>
+                <Label 
+                    x:Name="RepititionLabel"
+                    VerticalOptions="Center"
+                    Text="{Binding Repititions}"
+                    FontSize="Medium"
+                    TextColor="#9A9BA4"/>
+            </StackLayout>
+
+            <!--CompletedCheck-->
+            <local:CheckCircle 
+                VerticalOptions="Center"
+                HorizontalOptions="EndAndExpand"
+                Completed="{Binding Completed}"/>
+
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>
